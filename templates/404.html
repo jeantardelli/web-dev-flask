@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Talita Arqueros - Página Não Encontrada{% endblock %}
+
+{% block page_content %}
+<section class="about-section text-center" id="ERROR404">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+	        <h2 class="text-white mb-4">ERROR 404</h2>
+		<p class="text-white-50">
+		Não conseguimos encontrar a página desejada.
+		</p>
+	    </div>
+        </div>
+	<img class="img-fluid" src="{{ url_for('static', filename='assets/img/mandala-flower.jpg') }}" width="300", height="300" alt=""/>
+    </div>
+</section>
+{% endblock %}

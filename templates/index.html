@@ -1,1 +1,27 @@
-<h1>Hello Wordl!</h1>
+{% extends "base.html" %}
+
+{% block page_content %}
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+	    <h1 class="mx-auto my-0 text-uppercase">Talita Arqueros</h1>
+	    <h2 class="text-white-50 mx-auto mt-2 mb-5">Com que te conectas?</h2>
+	    <a class="btn btn-primary js-scroll-trigger" href="#about">Saiba mais!</a>
+        </div>
+    </div>
+</header>
+
+<section class="about-section text-center" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+	        <h2 class="text-white mb-4">Acredita no que você pode alcançar?</h2>
+		<p class="text-white-50">
+		    Venha conhecer a teraipa holística e externalizar bons sentimentos.
+		</p>
+	    </div>
+        </div>
+	<img class="img-fluid" src="{{ url_for('static', filename='assets/img/mandala-flower.jpg') }}" width="300", height="300" alt=""/>
+    </div>
+</section>
+{% endblock %}
