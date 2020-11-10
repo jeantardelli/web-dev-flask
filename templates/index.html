@@ -80,13 +80,19 @@
     <!-- Signup-->
     <section class="signup-section" id="signup">
         <div class="container">
+	    {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+            </div>
+            {% endfor %}
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto text-center">
                     <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
 		    <h2 class="text-white mb-5">Inscreva-se e fique por dentro das novidades!</h2>
-		    <form class="form-inline d-flex">
-                    {{ form.name(id='inputEmail', class='form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0', type='email', placeholder='Escreva seu email') }}
-                    {{ form.submit(class='btn btn-primary mx-auto') }}
+		    <form class="form-inline d-flex" method="post">
+			    {{ form.name(id='inputEmail', class='form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0', type='email', placeholder='Escreva seu email') }} {{ form.hidden_tag() }}
+		    {{ form.submit.button }} {{form.submit (class='btn btn-primary mx-auto') }}
 		    </form>
                 </div>
             </div>
