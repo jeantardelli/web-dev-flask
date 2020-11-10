@@ -3,12 +3,12 @@
 {% block head %}
 {{ super() }}
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/mandala.svg') }}" type="image/x-icon">
-    <link rel="icon" href="{{ url_for('static', filename='assets/img/mandala.svg') }}" type="image/x-icon">
-{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/img/mandala.svg') }}"
+    {% endblock %}
 {% block scripts %}
 {{ super() }}
     <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/550b90ed81.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
