@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Talita Arqueros - Envie sua mensagem{% endblock %}
+
+{% block page_content %}
+<section class="contact-message">
+	<div class="container">		
+		<div class="row">
+			<div class="mx-auto text-center">
+				<h1 class="text-white mb-5">Obrigado por sua mensagem!</h1>
+				<h3 class="text-white mb-5">Em breve entrarei em contato.</h3>
+			</div>
+		</div>
+		<div class="col text-center">
+			<a href="{{ url_for('index') }}">
+				<button class="btn btn-primary mx-auto text-center" type="submit">Voltar a página principal?</button>
+			</a>
+		</div>
+	</div>
+</section>
+{% endblock %}
