@@ -62,7 +62,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
@@ -257,7 +257,7 @@ input {
 
 button,
 select {
-  text-transform: none;
+  text-transform: inherit;
 }
 
 [role=button] {
@@ -265,7 +265,7 @@ select {
 }
 
 select {
-  word-wrap: normal;
+  word-wrap: none;
 }
 
 button,
@@ -10293,16 +10293,6 @@ body {
   background-attachment: scroll;
   background-size: cover;
 }
-.signup-section .form-inline input {
-  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  padding: 1.25rem 2rem;
-  height: auto;
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  border: 0;
-}
 
 .contact-section {
   padding-top: 5rem;
@@ -10342,12 +10332,12 @@ body {
 }
 
 .contact-message {
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 70%, #000000 100%), url("../assets/img/bg-signup.jpg");
-position: relative;
-width: 100%;
-height: auto;
-min-height: 55rem;
-padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("../assets/img/bg-signup.jpg");
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 63rem;
+  padding: 15rem 0;
 }
 
 .contact-message .form-group input {
@@ -10358,6 +10348,27 @@ padding: 15rem 0;
   font-size: 80%;
   letter-spacing: 0.15rem;
   border: 0;
+}
+
+.contact-message .form-group textarea {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  height: auto;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.contact-message .form-group select {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  height: auto;
+  width: 21rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  letter-spacing: 0.15rem;
+  border:0;
 }
 
 .footer {

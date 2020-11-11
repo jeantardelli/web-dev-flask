@@ -4,7 +4,7 @@
 {% block title %}Talita Arqueros - Envie sua mensagem{% endblock %}
 
 {% block page_content %}
-<section class="contact-message">
+    <section class="contact-message">
 	<div class="container">		
 		<div class="row">
 			<div class="mx-auto text-center">
@@ -46,7 +46,7 @@
 							<div class="col-lg-6">
 								<div class="form-group">
 									<div>{{ form.subject.label }}</div>
-									{{ form.subject(id='inputSubject', placeholder='Assunto') }}
+									{{ form.subject(id='inputSubject') }}
 									{% if form.subject.errors %}
 									<ul class="errors">{% for error in form.subject.errors %}<li>{{ error }}</li>{% endfor %}
 									{% endif %}
@@ -57,7 +57,7 @@
 							<div class="col-lg-12">
 								<div class="form-group">
 									<div>{{ form.body.label }}</div>
-									{{ form.body(id='inputBody', placeholder='Insira sua mensagem', rows=4, cols=60) }}
+									{{ form.body(id='inputBody', placeholder='Insira sua mensagem', rows=3, cols=60) }}
 									{% if form.body.errors %}
 									<ul class="errors">{% for error in form.body.errors %}<li>{{ error }}</li>{% endfor %}
 									{% endif %}
@@ -75,5 +75,5 @@
 			</div>
 		</div>
 	</div>
-</section>
+    </section>
 {% endblock %}
