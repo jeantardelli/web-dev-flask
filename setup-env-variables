@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Run a file called 'setup-exports'. The 'setup-exports' sets up the environment
+# variables that allow 'hello.py' to run.
+#
+# The output on stardard output is composed by two 'echo' commands.
+#
+# Usage:
+#        setup-env-variables
+
+echo "This script is about to run another script."
+../setup-exports
+echo "This script has just run another script."

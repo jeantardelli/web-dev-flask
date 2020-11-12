@@ -1,0 +1,9 @@
+You have a new message!
+
+From: {{ letter.email }}
+Date: {{ letter.timestamp }}
+Subject: {{ letter.subject }}
+
+Message:
+{{ letter.body }}
+

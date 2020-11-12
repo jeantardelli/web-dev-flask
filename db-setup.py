@@ -18,8 +18,8 @@ class Subscriber(Base):
     def __repr__(self):
         return "<Subscriber(email='{0}')>".format(self.email)
 
-class Message(Base):
-    __tablename__ = 'messages'
+class Letter(Base):
+    __tablename__ = 'letters'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
     firstname = sqlalchemy.Column(sqlalchemy.String(64))
@@ -29,7 +29,7 @@ class Message(Base):
     body = sqlalchemy.Column(sqlalchemy.Text)
 
     def __repr__(self):
-        return "<Message(firstname='{0}', lastname='{1}', email='{2}', "\
+        return "<Letter(firstname='{0}', lastname='{1}', email='{2}', "\
                "subject='{3}', body='{4}')>".format(self.firstname, self.lastname,
                 self.email, self.subject, self.body)
 

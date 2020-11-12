@@ -1,0 +1,1 @@
+A new subscriber has joined [{{ subscriber.email }}].
