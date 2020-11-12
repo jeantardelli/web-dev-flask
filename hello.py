@@ -6,6 +6,7 @@ from wtforms import SubmitField, StringField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Email, Length
 from wtforms.fields.html5 import EmailField
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -17,11 +18,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 class Subscriber(db.Model):
     __tablename__ = 'subscribers'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(64), unique=True, index=True)
 
     def __repr__(self):
         return '<Subscriber %r>' % self.email
@@ -31,7 +33,7 @@ class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(64))
     lastname = db.Column(db.String(64))
-    email = db.Column(db.String(64))
+    email = db.Column(db.String(64), index=True)
     subject = db.Column(db.String(64))
     body = db.Column(db.Text)
 
