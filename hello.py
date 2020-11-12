@@ -41,7 +41,6 @@ class Message(db.Model):
                 self.email, self.subject, self.body)
 
 class SubscribeForm(FlaskForm):
-    """ .. todo: write a method that validates if the email is already subscribed """
     email = EmailField('Email', validators=[DataRequired(), Length(1, 64)])
     submit = SubmitField('Registrar')
 
@@ -54,7 +53,11 @@ class ContactForm(FlaskForm):
     subject = SelectField('Assunto', choices=['', 'Tarot', 'Massagem', 
         'Heiki', 'Outro'], validators=[DataRequired()])
     submit = SubmitField('Enviar')
-                
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, Message=Message, Subscriber=Subscriber)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
