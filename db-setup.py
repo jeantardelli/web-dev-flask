@@ -5,6 +5,9 @@ from sqlalchemy.ext.declarative import declarative_base
 engine = sqlalchemy.create_engine(
     'mysql+mysqlconnector://pyuser:Py@pp4Demo@localhost:3306/sqlalchemy',
     echo=True)
+engine_dev = sqlalchemy.create_engine(
+        'mysql+mysqlconnector://pyuser:Py@pp4Demo@localhost:3306/sqlalchemy_dev',
+        echo=True)
 
 # Define and create the table
 Base = declarative_base()
@@ -34,3 +37,4 @@ class Letter(Base):
                 self.email, self.subject, self.body)
 
 Base.metadata.create_all(engine)
+Base.metadata.create_all(engine_dev)
