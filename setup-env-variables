@@ -9,5 +9,5 @@
 #        setup-env-variables
 
 echo "This script is about to run another script."
-../setup-exports
+source ../setup-exports
 echo "This script has just run another script."
