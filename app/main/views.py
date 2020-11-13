@@ -20,7 +20,7 @@ def index():
                 send_email(current_app.config['TARQUEROS_ADMIN'], 'New Subscriber',
                         'mail/new_subscriber', subscriber=subscriber)
         else:
-            flash('Este email já está registrado! ')
+            flash('Este email já está registrado!')
         session['email'] = form.email.data
         return redirect(url_for('.index', _anchor='signup'))
     return render_template('index.html', form=form, email=session.get('email'))
