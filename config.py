@@ -14,6 +14,7 @@ class Config:
     TARQUEROS_MAIL_SENDER = 'Talita Arqueros Admin <talitaarqueros@example.com>'
     TARQUEROS_ADMIN = os.environ.get('TALITAARQUEROS_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    TARQUEROS_SLOW_DB_QUERY_TIME = 0.5
 
     @staticmethod
     def init_app(app):

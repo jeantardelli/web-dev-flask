@@ -4,6 +4,17 @@ from ..email import send_email
 from . import main_bp
 from .forms import SubscribeForm, ContactForm
 from flask import render_template, session, redirect, url_for, current_app, flash
+from flask_sqlalchemy import get_debug_queries
+
+@main_bp.after_app_request
+def after_request(response):
+    for query in get_debug_queries():
+        if query.duration >= current_app.config['TARQUEROS_SLOW_DB_QUERY_TIME']:
+            current_app.logger.warning(
+                    'Slow query: {0}\nParameters: {1}\nDuration: {2}\nContext: '
+                    '{3}\n'.format(query.statement, query.parameters,
+                                   query.duration, query.context))
+    return response
 
 @main_bp.route('/', methods=['GET', 'POST'])
 def index():
