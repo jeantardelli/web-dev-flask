@@ -8,7 +8,7 @@ if os.environ.get('FLASK_COVERAGE'):
 
 import sys
 import click
-from flask_migrate import Migrate
+from flask_migrate import Migrate, upgrade
 from app import create_app, db
 from app.models import Subscriber, Letter
 
@@ -61,3 +61,9 @@ def profile(lenght, profile_dir):
     app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[lenght],
                                      profile_dir=profile_dir)
     app.run(debug=False)
+
+@app.cli.command()
+def deploy():
+    """Run deployment tasks."""
+    # migrate databse to latest revision
+    upgrade()
