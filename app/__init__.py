@@ -18,7 +18,7 @@ def create_app(config_name):
     db.init_app(app)
 
     if app.config['SSL_REDIRECT']:
-        from flasky_sslify import SSLify
+        from flask_sslify import SSLify
         sslify = SSLify(app)
 
     from .main import main_bp
