@@ -5,6 +5,9 @@ Web Development with Flask
 ==========================
 This repository contains the source code of a web application using Flask.
 
+
+The website can be accessed clicking [here](talita-arqueros.herokuapp.com)
+
 Requirements
 ============
 The list of Python packages to run this application can be found in [requirements.txt](requirements/common.txt) 
