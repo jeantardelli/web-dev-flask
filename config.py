@@ -11,7 +11,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     TARQUEROS_MAIL_SUBJECT_PREFIX = '[Talita Arqueros]'
-    TARQUEROS_MAIL_SENDER = 'Talita Arqueros Admin <talitaarqueros@example.com>'
+    TARQUEROS_MAIL_SENDER = 'Talita Arqueros Admin <tali.arqueros@gmail.com>'
     TARQUEROS_ADMIN = os.environ.get('TALITAARQUEROS_ADMIN')
     SSL_REDIRECT = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
