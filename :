@@ -1,0 +1,3 @@
+CREATE USER 'pyuser'@'localhost' IDENTIFIED BY 'Py@pp4Demo';
+GRANT ALL PRIVILEGES ON sqlalchemy.* TO 'pyuser'@'localhost';
+GRANT ALL PRIVILEGES ON sqlalchemy_dev.* TO 'pyuser'@'localhost';
