@@ -50,3 +50,14 @@ def test(coverage, test_names):
         print('HTML version: file://{0}/index.html'.format(covdir))
         COV.erase()
 
+@app.cli.command()
+@click.option('--lenght', default=25,
+              help='Number of functions to include in the profiler report.')
+@click.option('--profile-dir', default=None,
+              help='Directory where profiler data files are saved.')
+def profile(lenght, profile_dir):
+    """Start the application under the code profiler."""
+    from werkzeug.contrib.profiler import ProfilerMiddleware
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[lenght],
+                                     profile_dir=profile_dir)
+    app.run(debug=False)
