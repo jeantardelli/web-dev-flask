@@ -1,0 +1,5 @@
+# ignore generated files due to compile code
+*.pyc
+
+# ignore local set environments
+*.env

@@ -10,12 +10,12 @@ class Config:
             ['true', 'on', '1']
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    TARQUEROS_MAIL_SUBJECT_PREFIX = '[Talita Arqueros]'
-    TARQUEROS_MAIL_SENDER = 'Talita Arqueros Admin <tali.arqueros@gmail.com>'
-    TARQUEROS_ADMIN = os.environ.get('TARQUEROS_ADMIN')
+    MAIL_SUBJECT_PREFIX = '[Talita Arqueros]'
+    MAIL_SENDER = os.environ.get('MAIL_SENDER')
+    APP_ADMIN = os.environ.get('APP_ADMIN')
     SSL_REDIRECT = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    TARQUEROS_SLOW_DB_QUERY_TIME = 0.5
+    APP_SLOW_DB_QUERY_TIME = 0.5
 
     @staticmethod
     def init_app(app):
@@ -49,9 +49,9 @@ class ProductionConfig(Config):
                 secure = ()
         mail_handler = SMTPHandler(
             mailhost=(cls.MAIL_SERVER, cls.MAIL_PORT),
-            fromaddr=cls.TARQUEROS_MAIL_SENDER,
-            toaddrs=[cls.TARQUEROS_ADMIN],
-            subject=cls.TARQUEROS_MAIL_SUBJECT_PREFIX + ' Application Error',
+            fromaddr=cls.MAIL_SENDER,
+            toaddrs=[cls.APP_ADMIN],
+            subject=cls.MAIL_SUBJECT_PREFIX + ' Application Error',
             credentials=credentials,
             secure=secure)
         mail_handler.setLevel(logging.ERROR)
@@ -78,10 +78,26 @@ class HerokuConfig(ProductionConfig):
         file_handler.setLevel(logging.INFO)
         app.logger.addHandler(file_handler)
 
+class DockerConfig(ProductionConfig):
+
+    @classmethod
+    def init_app(cls, app):
+
+        ProductionConfig.init_app(app)
+
+        # log to sterr
+        import logging
+        from logging import StreamHandler
+
+        file_handler = StreamHandler()
+        file_handler.setLevel(logging.INFO)
+        app.logger.addHandler(file_handler)
+
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
     'heroku': HerokuConfig,
+    'docker': DockerConfig,
     'default': ProductionConfig,
 }
