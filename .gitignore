@@ -2,4 +2,4 @@
 *.pyc
 
 # ignore local set environments
-*.env
+.env*

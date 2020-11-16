@@ -4,25 +4,26 @@ services:
         build: .
         links:
             - database
-        restart: "on-failure"
+        restart: always
         ports:
             - "5000:5000"
         networks:
             - backend-network
             - frontend-network
         env_file:
-            - app.env
+            - .env-app
 
     database:
         image: mysql
         ports:
             - "32000:3306"
+        restart: on-failure
         volumes:
             - database-data:/var/lib/mysql
         networks:
             - backend-network
         env_file:
-            - docker.env
+            - .env-docker
 volumes:
     database-data:
 networks:

@@ -38,7 +38,7 @@ $ cd web-dev-flask
 Make sure Docker is up and running and you have docker-compose installed. Then run:
 
 ```bash
-docker-compose up
+$ docker-compose up
 ```
 
 Open your browser and paste the below url:
